@@ -4,7 +4,7 @@ import 'package:luizdebank/components/ActionsListView.dart';
 import 'package:luizdebank/components/CreditCardButton.dart';
 import 'package:luizdebank/components/EmprestimoButton.dart';
 import 'package:luizdebank/components/HealthInsuranceButton.dart';
-import 'package:luizdebank/components/LabeledIconButton.dart';
+import 'package:luizdebank/components/HomeHeader.dart';
 import 'package:luizdebank/components/MyCardsButton.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,79 +21,59 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.person_outlined,
-            size: 28,
-          ),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.visibility_outlined,
-              size: 28,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.help_outline,
-              size: 28,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.forward_to_inbox_outlined,
-              size: 28,
-            ),
-            onPressed: () {},
-          )
-        ],
+        toolbarHeight: 0.0,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.fromLTRB(22, 28, 22, 20),
-                width: double.infinity,
-                color: Theme.of(context).colorScheme.primary,
-                child: Text(
-                  "Olá, Luiz Guilherme",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
+        child: RefreshIndicator(
+          onRefresh: () async {
+            return await Future.delayed(Duration(seconds: 3));
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0.5, 0],
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Colors.white,
+                ],
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    HomeHeader(),
+                    Padding(
+                      padding: EdgeInsets.all(22),
+                      child: AccountButton(),
+                    ),
+                    ActionsListView(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                      child: MyCardsButton(),
+                    ),
+                    Divider(height: 40),
+                    Padding(
+                      padding: const EdgeInsets.all(22.0),
+                      child: CreditCardButton(),
+                    ),
+                    Divider(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.all(22.0),
+                      child: EmprestimoButton(),
+                    ),
+                    Divider(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.all(22.0),
+                      child: HealthInsuranceButton(),
+                    ),
+                  ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(22),
-                child: AccountButton(),
-              ),
-              ActionsListView(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                child: MyCardsButton(),
-              ),
-              Divider(height: 40),
-              Padding(
-                padding: const EdgeInsets.all(22.0),
-                child: CreditCardButton(),
-              ),
-              Divider(height: 20),
-              Padding(
-                padding: const EdgeInsets.all(22.0),
-                child: EmprestimoButton(),
-              ),
-              Divider(height: 20),
-              Padding(
-                padding: const EdgeInsets.all(22.0),
-                child: HealthInsuranceButton(),
-              ),
-            ],
+            ),
           ),
         ),
       ),
