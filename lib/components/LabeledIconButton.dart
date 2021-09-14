@@ -12,7 +12,7 @@ class LabeledIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 75,
+      width: 80,
       child: Column(
         children: [
           TextButton(

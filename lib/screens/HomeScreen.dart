@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luizdebank/components/AccountButton.dart';
 import 'package:luizdebank/components/ActionsListView.dart';
+import 'package:luizdebank/components/CreditCardButton.dart';
 import 'package:luizdebank/components/LabeledIconButton.dart';
 import 'package:luizdebank/components/MyCardsButton.dart';
 
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               color: Theme.of(context).colorScheme.primary,
               child: Text(
-                "Olá, Isabela",
+                "Olá, Luiz Guilherme",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -75,6 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: MyCardsButton(),
             ),
             SizedBox(height: 12),
+            Divider(),
+            Padding(
+              padding: const EdgeInsets.all(22.0),
+              child: CreditCardButton(),
+            ),
             Divider(),
           ],
         ),
