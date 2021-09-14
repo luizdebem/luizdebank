@@ -1,6 +1,6 @@
 # luizdebank
 
-A new Flutter project.
+![Imagem animada demonstrando a interface gráfica](https://i.giphy.com/media/G7OH829qx0wDc9kBHB/giphy.webp)
 
 ## Getting Started
 
