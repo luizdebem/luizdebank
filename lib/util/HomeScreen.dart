@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lubank/components/LabeledIconButton.dart';
+import 'package:luizdebank/components/LabeledIconButton.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
