@@ -44,11 +44,25 @@ class CreditCardButton extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8),
-        Text(
-          "Limite disponível de R\$ 405,20",
-          style: TextStyle(
-            color: Colors.grey[600],
-            fontWeight: FontWeight.bold,
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: "Limite disponível de ",
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextSpan(
+                text: "R\$ 405,20",
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: -1.5,
+                ),
+              ),
+            ],
           ),
         ),
       ],
