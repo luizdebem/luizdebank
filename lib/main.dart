@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luizdebank/util/CustomSwatch.dart';
-import 'package:luizdebank/util/HomeScreen.dart';
+import 'package:luizdebank/screens/HomeScreen.dart';
 
 void main() {
   runApp(MyApp());
