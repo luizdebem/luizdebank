@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:luizdebank/components/AccountButton.dart';
+import 'package:luizdebank/components/ActionsListView.dart';
 import 'package:luizdebank/components/LabeledIconButton.dart';
+import 'package:luizdebank/components/MyCardsButton.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -9,25 +12,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final actions = [
-    "Pix",
-    "Pagar",
-    "Transferir",
-    "Depositar",
-    "Pegar emprestado",
-    "Recarga de celular",
-    "Cobrar",
-    "Doação",
-    "Transferir internac.",
-    "Encontrar atalhos",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        toolbarHeight: 72,
         leading: IconButton(
           icon: Icon(
             Icons.person_outlined,
@@ -63,90 +52,30 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Container(
+              padding: EdgeInsets.fromLTRB(22, 28, 22, 20),
               width: double.infinity,
               color: Theme.of(context).colorScheme.primary,
-              child: Padding(
-                padding: const EdgeInsets.all(22.0),
-                child: Text(
-                  "Olá, Isabela",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
+              child: Text(
+                "Olá, Isabela",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
             Padding(
               padding: EdgeInsets.all(22),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Conta",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Icon(Icons.keyboard_arrow_right),
-                    ],
-                  ),
-                  SizedBox(height: 18),
-                  Text(
-                    "R\$ 1.000.000,00",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      letterSpacing: -2.0,
-                    ),
-                  ),
-                ],
-              ),
+              child: AccountButton(),
             ),
-            Container(
-              height: 150,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(horizontal: 22.0),
-                itemCount: actions.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return LabeledIconButton(
-                    icon: Icons.search,
-                    label: actions[index],
-                  );
-                },
-                separatorBuilder: (BuildContext context, int itemIndex) {
-                  return SizedBox(width: 12);
-                },
-              ),
-            ),
+            ActionsListView(),
             SizedBox(height: 22),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22.0),
-              child: MaterialButton(
-                padding: EdgeInsets.symmetric(horizontal: 22, vertical: 16),
-                elevation: 0.0,
-                color: Colors.grey[200],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Icon(Icons.payments_outlined),
-                    SizedBox(width: 18),
-                    Text("Meus cartões"),
-                  ],
-                ),
-                onPressed: () {},
-              ),
+              child: MyCardsButton(),
             ),
+            SizedBox(height: 12),
+            Divider(),
           ],
         ),
       ),
