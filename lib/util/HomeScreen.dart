@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     "Recarga de celular",
     "Cobrar",
     "Doação",
-    "Transferir intarnac.",
+    "Transferir internac.",
     "Encontrar atalhos",
   ];
 
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        toolbarHeight: 80,
+        toolbarHeight: 72,
         leading: IconButton(
           icon: Icon(
             Icons.person_outlined,
@@ -126,7 +126,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   return SizedBox(width: 12);
                 },
               ),
-            )
+            ),
+            SizedBox(height: 22),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22.0),
+              child: MaterialButton(
+                padding: EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+                elevation: 0.0,
+                color: Colors.grey[200],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [
+                    Icon(Icons.payments_outlined),
+                    SizedBox(width: 18),
+                    Text("Meus cartões"),
+                  ],
+                ),
+                onPressed: () {},
+              ),
+            ),
           ],
         ),
       ),
