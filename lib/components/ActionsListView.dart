@@ -19,6 +19,19 @@ class ActionsListView extends StatelessWidget {
       "Encontrar atalhos",
     ];
 
+    List<IconData> icons = [
+      Icons.monetization_on_outlined,
+      Icons.receipt_outlined,
+      Icons.payments_outlined,
+      Icons.payments_outlined,
+      Icons.card_giftcard_outlined,
+      Icons.smartphone_outlined,
+      Icons.payments_outlined,
+      Icons.favorite_border_outlined,
+      Icons.language_outlined,
+      Icons.help_outline,
+    ];
+
     return Container(
       height: 150,
       child: ListView.separated(
@@ -27,7 +40,7 @@ class ActionsListView extends StatelessWidget {
         itemCount: actions.length,
         itemBuilder: (BuildContext context, int index) {
           return LabeledIconButton(
-            icon: Icons.search,
+            icon: icons[index],
             label: actions[index],
           );
         },
