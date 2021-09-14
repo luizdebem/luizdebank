@@ -23,54 +23,57 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0.0,
         toolbarHeight: 0.0,
       ),
-      body: SafeArea(
-        child: RefreshIndicator(
-          onRefresh: () async {
-            return await Future.delayed(Duration(seconds: 3));
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.5, 0],
-                colors: [
-                  Theme.of(context).primaryColor,
-                  Colors.white,
-                ],
-              ),
-            ),
-            child: SingleChildScrollView(
-              child: Container(
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    HomeHeader(),
-                    Padding(
-                      padding: EdgeInsets.all(22),
-                      child: AccountButton(),
-                    ),
-                    ActionsListView(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                      child: MyCardsButton(),
-                    ),
-                    Divider(height: 40),
-                    Padding(
-                      padding: const EdgeInsets.all(22.0),
-                      child: CreditCardButton(),
-                    ),
-                    Divider(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.all(22.0),
-                      child: EmprestimoButton(),
-                    ),
-                    Divider(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.all(22.0),
-                      child: HealthInsuranceButton(),
-                    ),
+      body: Container(
+        color: Colors.white,
+        child: SafeArea(
+          child: RefreshIndicator(
+            onRefresh: () async {
+              return await Future.delayed(Duration(seconds: 3));
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.5, 0],
+                  colors: [
+                    Theme.of(context).primaryColor,
+                    Colors.white,
                   ],
+                ),
+              ),
+              child: SingleChildScrollView(
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      HomeHeader(),
+                      Padding(
+                        padding: EdgeInsets.all(22),
+                        child: AccountButton(),
+                      ),
+                      ActionsListView(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                        child: MyCardsButton(),
+                      ),
+                      Divider(height: 40),
+                      Padding(
+                        padding: const EdgeInsets.all(22.0),
+                        child: CreditCardButton(),
+                      ),
+                      Divider(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.all(22.0),
+                        child: EmprestimoButton(),
+                      ),
+                      Divider(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.all(22.0),
+                        child: HealthInsuranceButton(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

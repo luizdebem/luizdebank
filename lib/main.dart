@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:luizdebank/util/CustomSwatch.dart';
 import 'package:luizdebank/screens/HomeScreen.dart';
 
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: createMaterialColor(
           Color.fromRGBO(119, 26, 201, 1),
+        ),
+        appBarTheme: AppBarTheme.of(context).copyWith(
+          brightness: Brightness.dark,
         ),
       ),
       home: HomeScreen(),
