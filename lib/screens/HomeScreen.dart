@@ -50,31 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                       child: Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(22),
-                            child: AccountButton(),
-                          ),
+                          AccountButton(),
                           ActionsListView(),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 22.0),
-                            child: MyCardsButton(),
-                          ),
-                          Divider(height: 40),
-                          Padding(
-                            padding: const EdgeInsets.all(22.0),
-                            child: CreditCardButton(),
-                          ),
-                          Divider(height: 20),
-                          Padding(
-                            padding: const EdgeInsets.all(22.0),
-                            child: EmprestimoButton(),
-                          ),
-                          Divider(height: 20),
-                          Padding(
-                            padding: const EdgeInsets.all(22.0),
-                            child: HealthInsuranceButton(),
-                          ),
+                          MyCardsButton(),
+                          SizedBox(height: 20),
+                          CreditCardButton(),
+                          EmprestimoButton(),
+                          HealthInsuranceButton(),
                         ],
                       ),
                     ),
