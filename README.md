@@ -1,6 +1,6 @@
 # luizdebank
 
-![Imagem animada demonstrando a interface gráfica](https://media1.giphy.com/media/x0WAxa8zS4WdOA4Pqe/giphy.gif?cid=790b7611114344a03ea981207c63bab288fadd6740513916&rid=giphy.gif&ct=g)
+https://user-images.githubusercontent.com/37565843/133482269-0ac23a59-11f6-4893-bc53-307dd169a9aa.mp4
 
 ## Getting Started
 
