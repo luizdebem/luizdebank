@@ -1,6 +1,6 @@
 # luizdebank
 
-![Imagem animada demonstrando a interface gráfica](https://i.giphy.com/media/G7OH829qx0wDc9kBHB/giphy.webp)
+![Imagem animada demonstrando a interface gráfica](https://media1.giphy.com/media/x0WAxa8zS4WdOA4Pqe/giphy.gif?cid=790b7611114344a03ea981207c63bab288fadd6740513916&rid=giphy.gif&ct=g)
 
 ## Getting Started
 
