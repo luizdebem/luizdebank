@@ -43,37 +43,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               child: SingleChildScrollView(
-                child: Container(
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      HomeHeader(),
-                      Padding(
-                        padding: EdgeInsets.all(22),
-                        child: AccountButton(),
+                child: Column(
+                  children: [
+                    HomeHeader(),
+                    Container(
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(22),
+                            child: AccountButton(),
+                          ),
+                          ActionsListView(),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 22.0),
+                            child: MyCardsButton(),
+                          ),
+                          Divider(height: 40),
+                          Padding(
+                            padding: const EdgeInsets.all(22.0),
+                            child: CreditCardButton(),
+                          ),
+                          Divider(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.all(22.0),
+                            child: EmprestimoButton(),
+                          ),
+                          Divider(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.all(22.0),
+                            child: HealthInsuranceButton(),
+                          ),
+                        ],
                       ),
-                      ActionsListView(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 22.0),
-                        child: MyCardsButton(),
-                      ),
-                      Divider(height: 40),
-                      Padding(
-                        padding: const EdgeInsets.all(22.0),
-                        child: CreditCardButton(),
-                      ),
-                      Divider(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.all(22.0),
-                        child: EmprestimoButton(),
-                      ),
-                      Divider(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.all(22.0),
-                        child: HealthInsuranceButton(),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
