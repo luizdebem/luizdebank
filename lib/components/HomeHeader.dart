@@ -18,45 +18,57 @@ class HomeHeader extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: BoxConstraints(),
-                  icon: Icon(
-                    Icons.person_outlined,
-                    size: 28,
-                    color: Colors.white,
+                Material(
+                  color: Colors.transparent,
+                  child: IconButton(
+                    padding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    constraints: BoxConstraints(),
+                    icon: Icon(
+                      Icons.person_outlined,
+                      size: 28,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {},
                   ),
-                  onPressed: () {},
                 ),
                 Row(
                   children: [
-                    IconButton(
-                      icon: Icon(
-                        hidden.isHidden
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined,
-                        size: 28,
-                        color: Colors.white,
+                    Material(
+                      color: Colors.transparent,
+                      child: IconButton(
+                        icon: Icon(
+                          hidden.isHidden
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                          size: 28,
+                          color: Colors.white,
+                        ),
+                        onPressed: () => hidden.toggle(),
                       ),
-                      onPressed: () => hidden.toggle(),
                     ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.help_outline,
-                        size: 28,
-                        color: Colors.white,
+                    Material(
+                      color: Colors.transparent,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.help_outline,
+                          size: 28,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
                       ),
-                      onPressed: () {},
                     ),
-                    IconButton(
-                      padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
-                      constraints: BoxConstraints(),
-                      icon: Icon(
-                        Icons.forward_to_inbox_outlined,
-                        size: 28,
-                        color: Colors.white,
+                    Material(
+                      color: Colors.transparent,
+                      child: IconButton(
+                        padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
+                        constraints: BoxConstraints(),
+                        icon: Icon(
+                          Icons.forward_to_inbox_outlined,
+                          size: 28,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
                       ),
-                      onPressed: () {},
                     ),
                   ],
                 ),
