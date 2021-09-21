@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:luizdebank/components/HideMoney.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
 import 'package:provider/provider.dart';
 
 class CreditCardButton extends StatelessWidget {
-  const CreditCardButton({Key key}) : super(key: key);
+  CreditCardButton({Key key}) : super(key: key);
+
+  final formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class CreditCardButton extends StatelessWidget {
               SizedBox(height: 8),
               hidden.isHidden
                   ? Text(
-                      "R\$ 1.094,80",
+                      formatter.format(1094.80),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -67,7 +70,7 @@ class CreditCardButton extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: "R\$ 405,20",
+                      text: formatter.format(405.20),
                       style: TextStyle(
                         color: Colors.grey[600],
                         fontWeight: FontWeight.bold,

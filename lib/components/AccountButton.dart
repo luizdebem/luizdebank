@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:luizdebank/components/HideMoney.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
 import 'package:provider/provider.dart';
 
 class AccountButton extends StatelessWidget {
-  const AccountButton({Key key}) : super(key: key);
+  final double money;
+
+  AccountButton({
+    Key key,
+    @required this.money,
+  }) : super(key: key);
+
+  final formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +44,7 @@ class AccountButton extends StatelessWidget {
               SizedBox(height: 18),
               hidden.isHidden
                   ? Text(
-                      "R\$ 1.721.369,32",
+                      formatter.format(money),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
