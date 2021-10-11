@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:luizdebank/components/HideMoney.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
+import 'package:luizdebank/services/HolderService.dart';
 import 'package:provider/provider.dart';
 
 class CreditCardButton extends StatelessWidget {
@@ -11,8 +12,8 @@ class CreditCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HideMoneyService>(
-      builder: (context, hidden, child) => MaterialButton(
+    return Consumer2<HideMoneyService, HolderService>(
+      builder: (context, hiddenService, holderService, child) => MaterialButton(
         padding: EdgeInsets.zero,
         onPressed: () {},
         shape: Border(top: BorderSide(color: Colors.grey[100], width: 2)),
@@ -47,9 +48,11 @@ class CreditCardButton extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8),
-              hidden.isHidden
+              hiddenService.isHidden
                   ? Text(
-                      formatter.format(1094.80),
+                      formatter.format(
+                        holderService.holder.creditCardInfo.currentInvoice,
+                      ),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -70,7 +73,9 @@ class CreditCardButton extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: formatter.format(405.20),
+                      text: formatter.format(
+                        holderService.holder.creditCardInfo.availableLimit,
+                      ),
                       style: TextStyle(
                         color: Colors.grey[600],
                         fontWeight: FontWeight.bold,

@@ -8,6 +8,7 @@ import 'package:luizdebank/components/EmprestimoButton.dart';
 import 'package:luizdebank/components/HealthInsuranceButton.dart';
 import 'package:luizdebank/components/HomeHeader.dart';
 import 'package:luizdebank/components/MyCardsButton.dart';
+import 'package:luizdebank/components/SetMoneyDialog.dart';
 
 class HomeScreen extends StatefulWidget {
   // routeName implícito "/" em main.dart
@@ -18,60 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController _moneyController = TextEditingController();
-  double _money = 1000;
-
-  @override
-  void initState() {
-    SchedulerBinding.instance.addPostFrameCallback(
-      (_) => showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: Text("Olá!"),
-          content: Container(
-            height: 80,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text("Quanto de grana tu queres?"),
-                  TextField(
-                    controller: _moneyController,
-                    keyboardType: TextInputType.numberWithOptions(
-                      decimal: true,
-                      signed: false,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          actions: [
-            TextButton(
-              child: Text("OK"),
-              onPressed: () {
-                final value = _moneyController.text.replaceAll(',', '.');
-                try {
-                  final parsedValue = double.parse(value);
-                  if (parsedValue >= 0) {
-                    setState(() {
-                      _money = parsedValue;
-                    });
-                    Navigator.of(context).pop();
-                  }
-                } catch (error) {
-                  Navigator.of(context).pop();
-                }
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                       child: Column(
                         children: [
-                          AccountButton(money: _money),
+                          AccountButton(),
                           ActionsListView(),
                           MyCardsButton(),
                           SizedBox(height: 20),

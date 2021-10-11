@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:luizdebank/components/SetMoneyDialog.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
+import 'package:luizdebank/services/HolderService.dart';
 import 'package:provider/provider.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -7,8 +9,8 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HideMoneyService>(
-      builder: (context, hidden, child) => Container(
+    return Consumer2<HideMoneyService, HolderService>(
+      builder: (context, hiddenService, holderService, child) => Container(
         color: Theme.of(context).primaryColor,
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 22.0),
@@ -28,7 +30,12 @@ class HomeHeader extends StatelessWidget {
                       size: 28,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => SetMoneyDialog(),
+                      );
+                    },
                   ),
                 ),
                 Row(
@@ -37,13 +44,13 @@ class HomeHeader extends StatelessWidget {
                       color: Colors.transparent,
                       child: IconButton(
                         icon: Icon(
-                          hidden.isHidden
+                          hiddenService.isHidden
                               ? Icons.visibility_outlined
                               : Icons.visibility_off_outlined,
                           size: 28,
                           color: Colors.white,
                         ),
-                        onPressed: () => hidden.toggle(),
+                        onPressed: () => hiddenService.toggle(),
                       ),
                     ),
                     Material(
@@ -77,7 +84,7 @@ class HomeHeader extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 22.0),
               child: Text(
-                "Olá, Luiz Guilherme",
+                "Olá, ${holderService.holder.fullName}",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,

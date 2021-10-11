@@ -2,22 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:luizdebank/components/HideMoney.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
+import 'package:luizdebank/services/HolderService.dart';
 import 'package:provider/provider.dart';
 
 class AccountButton extends StatelessWidget {
-  final double money;
-
-  AccountButton({
-    Key key,
-    @required this.money,
-  }) : super(key: key);
+  AccountButton({Key key}) : super(key: key);
 
   final formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HideMoneyService>(
-      builder: (context, hidden, child) => MaterialButton(
+    return Consumer2<HideMoneyService, HolderService>(
+      builder: (context, hiddenService, holderService, child) => MaterialButton(
         padding: EdgeInsets.zero,
         onPressed: () {},
         shape: Border(top: BorderSide(color: Colors.grey[100], width: 2)),
@@ -42,9 +38,9 @@ class AccountButton extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 18),
-              hidden.isHidden
+              hiddenService.isHidden
                   ? Text(
-                      formatter.format(money),
+                      formatter.format(holderService.holder.accountInfo.total),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
