@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:luizdebank/components/AccountButton.dart';
 import 'package:luizdebank/components/ActionsListView.dart';
@@ -8,7 +7,6 @@ import 'package:luizdebank/components/EmprestimoButton.dart';
 import 'package:luizdebank/components/HealthInsuranceButton.dart';
 import 'package:luizdebank/components/HomeHeader.dart';
 import 'package:luizdebank/components/MyCardsButton.dart';
-import 'package:luizdebank/components/SetMoneyDialog.dart';
 
 class HomeScreen extends StatefulWidget {
   // routeName implícito "/" em main.dart
@@ -31,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SafeArea(
           child: RefreshIndicator(
             onRefresh: () async {
+              HapticFeedback.heavyImpact();
               return await Future.delayed(Duration(seconds: 3));
             },
             child: Container(

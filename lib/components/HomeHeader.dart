@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:luizdebank/components/SetMoneyDialog.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
 import 'package:luizdebank/services/HolderService.dart';
@@ -29,7 +30,8 @@ class HomeHeader extends StatelessWidget {
                         size: 28,
                         color: Colors.white,
                       ),
-                      onPressed: () {
+                      onPressed: () async {
+                        await HapticFeedback.heavyImpact();
                         showDialog(
                           context: context,
                           builder: (_) => SetMoneyDialog(),
@@ -49,7 +51,10 @@ class HomeHeader extends StatelessWidget {
                             size: 28,
                             color: Colors.white,
                           ),
-                          onPressed: () => hiddenService.toggle(),
+                          onPressed: () async {
+                            await HapticFeedback.heavyImpact();
+                            hiddenService.toggle();
+                          },
                         ),
                       ),
                       Material(
@@ -60,7 +65,9 @@ class HomeHeader extends StatelessWidget {
                             size: 28,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            await HapticFeedback.heavyImpact();
+                          },
                         ),
                       ),
                       Material(
@@ -71,7 +78,9 @@ class HomeHeader extends StatelessWidget {
                             size: 28,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            await HapticFeedback.heavyImpact();
+                          },
                         ),
                       ),
                     ],
