@@ -142,17 +142,22 @@ class _SetMoneyDialogState extends State<SetMoneyDialog> {
               Holder oldHolder = holderService.holder;
               Holder newHolder = Holder(
                 accountInfo: AccountInfo(
-                  total: formValue["accountTotal"] != null
-                      ? double.parse(formValue["accountTotal"])
-                      : oldHolder.accountInfo.total,
+                  total:
+                      formValue["accountTotal"]?.toString()?.isNotEmpty != null
+                          ? double.parse(formValue["accountTotal"])
+                          : oldHolder.accountInfo.total,
                 ),
                 creditCardInfo: CreditCardInfo(
-                  availableLimit: formValue["availableLimit"] != null
-                      ? double.parse(formValue["availableLimit"])
-                      : oldHolder.creditCardInfo.availableLimit,
-                  currentInvoice: formValue["currentInvoice"] != null
-                      ? double.parse(formValue["currentInvoice"])
-                      : oldHolder.creditCardInfo.currentInvoice,
+                  availableLimit:
+                      formValue["availableLimit"]?.toString()?.isNotEmpty !=
+                              null
+                          ? double.parse(formValue["availableLimit"])
+                          : oldHolder.creditCardInfo.availableLimit,
+                  currentInvoice:
+                      formValue["currentInvoice"]?.toString()?.isNotEmpty !=
+                              null
+                          ? double.parse(formValue["currentInvoice"])
+                          : oldHolder.creditCardInfo.currentInvoice,
                 ),
                 fullName: formValue["fullName"] ?? oldHolder.fullName,
               );
