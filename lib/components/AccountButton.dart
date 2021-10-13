@@ -3,12 +3,11 @@ import 'package:intl/intl.dart';
 import 'package:luizdebank/components/HideMoney.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
 import 'package:luizdebank/services/HolderService.dart';
+import 'package:luizdebank/util/Util.dart';
 import 'package:provider/provider.dart';
 
 class AccountButton extends StatelessWidget {
   AccountButton({Key key}) : super(key: key);
-
-  final formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,9 @@ class AccountButton extends StatelessWidget {
               SizedBox(height: 18),
               hiddenService.isHidden
                   ? Text(
-                      formatter.format(holderService.holder.accountInfo.total),
+                      Util.currencyFormatter.format(
+                        holderService.holder.accountInfo.total,
+                      ),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

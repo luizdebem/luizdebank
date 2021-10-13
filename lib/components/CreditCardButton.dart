@@ -3,12 +3,11 @@ import 'package:intl/intl.dart';
 import 'package:luizdebank/components/HideMoney.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
 import 'package:luizdebank/services/HolderService.dart';
+import 'package:luizdebank/util/Util.dart';
 import 'package:provider/provider.dart';
 
 class CreditCardButton extends StatelessWidget {
   CreditCardButton({Key key}) : super(key: key);
-
-  final formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +49,7 @@ class CreditCardButton extends StatelessWidget {
               SizedBox(height: 8),
               hiddenService.isHidden
                   ? Text(
-                      formatter.format(
+                      Util.currencyFormatter.format(
                         holderService.holder.creditCardInfo.currentInvoice,
                       ),
                       style: TextStyle(
@@ -73,7 +72,7 @@ class CreditCardButton extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: formatter.format(
+                      text: Util.currencyFormatter.format(
                         holderService.holder.creditCardInfo.availableLimit,
                       ),
                       style: TextStyle(

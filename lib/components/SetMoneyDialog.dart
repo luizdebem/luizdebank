@@ -4,6 +4,7 @@ import 'package:luizdebank/models/Holder/AccountInfo.dart';
 import 'package:luizdebank/models/Holder/CreditCardInfo.dart';
 import 'package:luizdebank/models/Holder/Holder.dart';
 import 'package:luizdebank/services/HolderService.dart';
+import 'package:luizdebank/util/Util.dart';
 import 'package:provider/provider.dart';
 
 class SetMoneyDialog extends StatefulWidget {
@@ -23,105 +24,89 @@ class _SetMoneyDialogState extends State<SetMoneyDialog> {
         content: Container(
           height: 380,
           child: Center(
-            child: Theme(
-              data: ThemeData(
-                inputDecorationTheme: InputDecorationTheme(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Theme.of(context).primaryColor,
+            child: SingleChildScrollView(
+              child: FormBuilder(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Insira o seu nome",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Theme.of(context).primaryColor,
+                    FormBuilderTextField(
+                      name: "fullName",
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        hintText: holderService.holder.fullName,
+                      ),
                     ),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Theme.of(context).errorColor,
+                    SizedBox(height: 22),
+                    Text(
+                      "Insira o valor total em sua conta",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              child: SingleChildScrollView(
-                child: FormBuilder(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Insira o seu nome",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                    FormBuilderTextField(
+                      name: "accountTotal",
+                      keyboardType: TextInputType.numberWithOptions(
+                        decimal: true,
+                        signed: false,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: Util.currencyFormatter.format(
+                          holderService.holder.accountInfo.total,
                         ),
                       ),
-                      FormBuilderTextField(
-                        name: "fullName",
-                        keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
-                          hintText: "Nome completo",
+                    ),
+                    SizedBox(height: 22),
+                    Text(
+                      "Insira o valor da sua fatura atual",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    FormBuilderTextField(
+                      name: "currentInvoice",
+                      keyboardType: TextInputType.numberWithOptions(
+                        decimal: true,
+                        signed: false,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: Util.currencyFormatter.format(
+                          holderService.holder.creditCardInfo.currentInvoice,
                         ),
                       ),
-                      SizedBox(height: 22),
-                      Text(
-                        "Insira o valor total em sua conta",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                    ),
+                    SizedBox(height: 22),
+                    Text(
+                      "Insira o valor do seu limite disponível",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    FormBuilderTextField(
+                      name: "availableLimit",
+                      keyboardType: TextInputType.numberWithOptions(
+                        decimal: true,
+                        signed: false,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: Util.currencyFormatter.format(
+                          holderService.holder.creditCardInfo.availableLimit,
                         ),
                       ),
-                      FormBuilderTextField(
-                        name: "accountTotal",
-                        keyboardType: TextInputType.numberWithOptions(
-                          decimal: true,
-                          signed: false,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: "R\$",
-                        ),
-                      ),
-                      SizedBox(height: 22),
-                      Text(
-                        "Insira o valor da sua fatura atual",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      FormBuilderTextField(
-                        name: "currentInvoice",
-                        keyboardType: TextInputType.numberWithOptions(
-                          decimal: true,
-                          signed: false,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: "R\$",
-                        ),
-                      ),
-                      SizedBox(height: 22),
-                      Text(
-                        "Insira o valor do seu limite disponível",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      FormBuilderTextField(
-                        name: "availableLimit",
-                        keyboardType: TextInputType.numberWithOptions(
-                          decimal: true,
-                          signed: false,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: "R\$",
-                        ),
-                      ),
-                      SizedBox(height: 22),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 22),
+                  ],
                 ),
               ),
             ),
