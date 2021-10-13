@@ -5,7 +5,7 @@ class ActionsListView extends StatelessWidget {
   ActionsListView({Key key}) : super(key: key);
 
   final List<String> actions = [
-    "Pix",
+    "Área Pix",
     "Pagar",
     "Transferir",
     "Depositar",

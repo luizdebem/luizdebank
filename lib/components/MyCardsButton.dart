@@ -18,7 +18,10 @@ class MyCardsButton extends StatelessWidget {
           children: [
             Icon(Icons.payments_outlined),
             SizedBox(width: 18),
-            Text("Meus cartões"),
+            Text(
+              "Meus cartões",
+              style: TextStyle(fontSize: 12),
+            ),
           ],
         ),
         onPressed: () {},
