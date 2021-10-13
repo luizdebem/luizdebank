@@ -7,6 +7,7 @@ import 'package:luizdebank/components/EmprestimoButton.dart';
 import 'package:luizdebank/components/HealthInsuranceButton.dart';
 import 'package:luizdebank/components/HomeHeader.dart';
 import 'package:luizdebank/components/MyCardsButton.dart';
+import 'package:luizdebank/components/WarningCardsListView.dart';
 
 class HomeScreen extends StatefulWidget {
   // routeName implícito "/" em main.dart
@@ -55,6 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           AccountButton(),
                           ActionsListView(),
                           MyCardsButton(),
+                          SizedBox(height: 20),
+                          WarningCardsListView(),
                           SizedBox(height: 20),
                           CreditCardButton(),
                           EmprestimoButton(),

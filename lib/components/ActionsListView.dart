@@ -2,36 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:luizdebank/components/LabeledIconButton.dart';
 
 class ActionsListView extends StatelessWidget {
-  const ActionsListView({Key key}) : super(key: key);
+  ActionsListView({Key key}) : super(key: key);
+
+  final List<String> actions = [
+    "Pix",
+    "Pagar",
+    "Transferir",
+    "Depositar",
+    "Pegar emprestado",
+    "Recarga de celular",
+    "Cobrar",
+    "Doação",
+    "Transferir internac.",
+    "Encontrar atalhos",
+  ];
+
+  final List<IconData> icons = [
+    Icons.monetization_on_outlined,
+    Icons.receipt_outlined,
+    Icons.payments_outlined,
+    Icons.payments_outlined,
+    Icons.card_giftcard_outlined,
+    Icons.smartphone_outlined,
+    Icons.payments_outlined,
+    Icons.favorite_border_outlined,
+    Icons.language_outlined,
+    Icons.help_outline,
+  ];
 
   @override
   Widget build(BuildContext context) {
-    List<String> actions = [
-      "Pix",
-      "Pagar",
-      "Transferir",
-      "Depositar",
-      "Pegar emprestado",
-      "Recarga de celular",
-      "Cobrar",
-      "Doação",
-      "Transferir internac.",
-      "Encontrar atalhos",
-    ];
-
-    List<IconData> icons = [
-      Icons.monetization_on_outlined,
-      Icons.receipt_outlined,
-      Icons.payments_outlined,
-      Icons.payments_outlined,
-      Icons.card_giftcard_outlined,
-      Icons.smartphone_outlined,
-      Icons.payments_outlined,
-      Icons.favorite_border_outlined,
-      Icons.language_outlined,
-      Icons.help_outline,
-    ];
-
     return Container(
       height: 150,
       child: ListView.separated(
