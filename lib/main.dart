@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:luizdebank/models/Holder/AccountInfo.dart';
-import 'package:luizdebank/models/Holder/CreditCardInfo.dart';
-import 'package:luizdebank/models/Holder/Holder.dart';
 import 'package:luizdebank/services/HideMoneyService.dart';
 import 'package:luizdebank/services/HolderService.dart';
 import 'package:luizdebank/util/CustomSwatch.dart';
@@ -10,7 +7,12 @@ import 'package:luizdebank/screens/HomeScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  ).then((_) {
+    runApp(new MyApp());
+  });
 }
 
 class MyApp extends StatefulWidget {
